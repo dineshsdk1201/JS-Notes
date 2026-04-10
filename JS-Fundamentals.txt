@@ -1,0 +1,246 @@
+MODERN JAVASCRIPT CHEAT SHEET (UDemy Style)
+
+Covers ES6+ concepts with real examples from your code
+
+
+📌 INDEX (Quick Navigation)
+1. JavaScript Fundamentals
+
+Strict Mode
+Variables (const, let)
+Arrays
+Objects
+Functions (Methods)
+
+2. ES6+ Object & Array Features
+
+Enhanced Object Literals
+Computed Property Names
+Destructuring (Arrays & Objects)
+Spread Operator (...)
+Rest Pattern & Rest Parameters
+
+3. Logical & Safety Operators
+
+Short-Circuiting (||, &&)
+Nullish Coalescing (??)
+Logical Assignment Operators
+Optional Chaining (?.)
+
+4. Strings (Very Important)
+
+String Creation & Access
+String Methods (Case, Trim, Replace)
+String Formatting (Pad, Repeat)
+
+5. Data Structures
+
+Sets
+Maps
+Maps vs Objects
+
+6. Loops & Iteration
+
+for...of loop
+Looping Arrays, Objects, Maps
+
+7. DOM & Events
+
+DOM Creation
+Event Handling
+
+8. Practical Challenges (Applied JS)
+
+Variable Conversion
+Football App Challenges
+
+
+🔹 1. STRICT MODE
+JavaScript'use strict';Show more lines
+✅ What it does
+
+Prevents accidental global variables
+Throws errors instead of failing silently
+
+❌ Without strict mode
+JavaScriptx = 10; // No errorShow more lines
+✅ With strict mode
+JavaScript'use strict';x = 10; // ❌ ReferenceErrorShow more lines
+✅ Always use it at the top of your file
+
+🔹 2. VARIABLES (const, let)
+JavaScriptconst name = 'Jonas'; // Cannot be reassignedlet age = 30;        // Can be reassigned``Show more lines
+✅ Use const by default
+✅ Use let only when reassignment is needed
+❌ Avoid var
+
+🔹 3. ARRAYS
+JavaScriptconst weekdays = ['mon', 'tue', 'wed', 'thu'];``Show more lines
+✅ Ordered
+✅ Zero-based index
+JavaScriptconsole.log(weekdays[0]); // monShow more lines
+
+🔹 4. OBJECTS
+JavaScriptconst restaurant = {  name: 'Classico Italiano',  location: 'Italy',  categories: ['Italian', 'Pizza'],};``Show more lines
+✅ Key–value pairs
+✅ Best for structured data
+
+🔹 5. FUNCTIONS (OBJECT METHODS)
+JavaScriptorder(starterIndex, mainIndex) {  return [    this.starterMenu[starterIndex],    this.mainMenu[mainIndex]  ];}Show more lines
+✅ this refers to the object
+✅ Methods belong to objects
+
+🔹 6. ENHANCED OBJECT LITERALS
+JavaScriptconst openingHours = { fri: { open: 11, close: 23 } };const restaurant = {  openingHours,  order() {},};``Show more lines
+✅ Cleaner syntax
+✅ No repetition
+
+🔹 7. COMPUTED PROPERTY NAMES
+JavaScriptconst days = ['mon', 'tue', 'wed'];const hours = {  [days[0]]: { open: 9, close: 17 },};Show more lines
+✅ Dynamic object keys
+✅ Used with arrays & loops
+
+🔹 8. DESTRUCTURING
+✅ Array Destructuring
+JavaScriptconst arr = [1, 2, 3];const [a, b] = arr;Show more lines
+✅ Extract by position
+
+✅ Object Destructuring
+JavaScriptconst { name, categories } = restaurant;Show more lines
+✅ Extract by key names
+
+✅ Default Values
+JavaScriptconst { menu = [] } = restaurant;Show more lines
+
+🔹 9. SPREAD OPERATOR (...)
+✅ Copy Arrays
+JavaScriptconst newArr = [...oldArr];Show more lines
+✅ Merge Arrays
+JavaScriptconst menu = [...starters, ...mains];``Show more lines
+✅ Copy Objects
+JavaScriptconst restaurantCopy = { ...restaurant };Show more lines
+✅ Prevents mutation
+✅ Used heavily in React
+
+🔹 10. REST PATTERN & PARAMETERS
+✅ Rest in Destructuring
+JavaScriptconst [a, b, ...others] = [1, 2, 3, 4];Show more lines
+✅ Rest in Functions
+JavaScriptfunction add(...numbers) {  let sum = 0;  for (const n of numbers) sum += n;  console.log(sum);}``Show more lines
+JavaScriptadd(1, 2, 3); // 6Show more lines
+
+🔹 11. SHORT-CIRCUITING
+✅ OR Operator (||)
+JavaScriptconst guests = restaurant.numGuests || 10;Show more lines
+Returns first truthy value
+
+✅ AND Operator (&&)
+JavaScriptrestaurant.orderPizza && restaurant.orderPizza('mushroom');Show more lines
+✅ Conditional execution without if
+
+🔹 12. NULLISH COALESCING (??)
+JavaScriptconst guests = restaurant.numGuests ?? 10;Show more lines
+✅ Only checks:
+
+null
+undefined
+
+❌ Does NOT treat 0 as false
+
+🔹 13. LOGICAL ASSIGNMENT OPERATORS
+JavaScriptrest.numGuests ??= 10;rest.owner &&= '<ANONYMOUS>';Show more lines
+✅ Shorter
+✅ Cleaner
+
+🔹 14. OPTIONAL CHAINING (?.)
+JavaScriptrestaurant.openingHours.mon?.open;Show more lines
+✅ Prevents runtime crashes
+✅ Works on:
+
+Objects
+Arrays
+Methods
+
+
+🔹 15. STRING BASICS
+JavaScriptconst airline = 'TAP Air Portugal';Show more lines
+JavaScriptconsole.log(airline[0]);  // Tconsole.log(airline.length);Show more lines
+
+🔹 16. STRING METHODS
+JavaScriptstr.toLowerCase();str.toUpperCase();str.trim();str.replace('door', 'gate');str.includes('Air');``Show more lines
+✅ Used for:
+
+Validation
+Cleaning input
+Formatting output
+
+
+🔹 17. STRING FORMATTING
+JavaScript'Jonas'.padStart(10, '*');'Hello'.repeat(3);``Show more lines
+✅ UI formatting
+✅ Logging clarity
+
+🔹 18. SETS
+JavaScriptconst orders = new Set(['Pizza', 'Pizza', 'Pasta']);Show more lines
+✅ Automatically removes duplicates
+✅ No indexes
+JavaScriptorders.has('Pizza');Show more lines
+
+🔹 19. MAPS
+JavaScriptconst gameEvents = new Map([  [17, 'GOAL'],  [64, 'YELLOW CARD'],]);Show more lines
+✅ Any key type
+✅ Ordered
+✅ Better than objects for dynamic data
+
+🔹 20. MAPS vs OBJECTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FeatureObjectMapKey TypesStrings onlyAnyOrderNoYesPerformanceAverageBetter
+
+🔹 21. for...of LOOP
+JavaScriptfor (const item of menu) console.log(item);Show more lines
+✅ Best for iterables
+✅ Clean & readable
+
+🔹 22. LOOPING OBJECTS
+JavaScriptObject.keys(obj);Object.values(obj);Object.entries(obj);Show more lines
+✅ Used for reporting
+✅ Used for dynamic UI
+
+🔹 23. DOM CREATION
+JavaScriptdocument.body.append(document.createElement('textarea'));Show more lines
+✅ DOM manipulation
+✅ UI building
+
+🔹 24. EVENTS
+JavaScriptbutton.addEventListener('click', function () {  console.log('Clicked');});Show more lines
+✅ Event-driven programming
+
+🔹 25. REAL CODING CHALLENGE EXAMPLE
+underscore_case ➜ camelCase
+JavaScriptconst rows = text.split('\n');for (const [i, row] of rows.entries()) {  const [first, second] = row.toLowerCase().trim().split('_');  const output = `${first}${second[0].toUpperCase() + second.slice(1)}`;  console.log(output.padEnd(20) + '✅'.repeat(i + 1));}Show more lines
+✅ Real‑world logic
+✅ Interview-level question
