@@ -1,0 +1,133 @@
+// JavaScript Recall Notes
+// 1. Scoping
+// Lexical scoping: Inner functions can access variables from outer functions.
+
+// Block scope vs. function scope:
+
+// let & const → block-scoped.
+
+// var → function-scoped (leaks outside blocks).
+
+// Shadowing: Inner variable with same name hides outer variable.
+
+// Function declarations inside blocks:
+
+// In strict mode → block-scoped.
+
+// Outside strict mode → function-scoped.
+
+// Example takeaway:
+
+// js
+if (true) {
+  var x = 10; // accessible outside block
+  let y = 20; // only inside block
+}
+// 2. Hoisting & TDZ
+// Hoisting: Variables/functions are moved to top of scope during compilation.
+
+// var → hoisted, initialized as undefined.
+
+// let & const → hoisted but in Temporal Dead Zone (TDZ) until initialized.
+
+// Function declarations → fully hoisted.
+
+// Function expressions/arrow functions → behave like variables.
+
+// TDZ: Accessing let/const before initialization throws error.
+
+// Example takeaway:
+
+// js
+console.log(a); // undefined
+var a = 5;
+
+console.log(b); // ReferenceError
+let b = 10;
+// 3. The this Keyword
+// Global scope: this → global object (window in browser).
+
+// Regular functions:
+
+// In strict mode → undefined.
+
+// In non-strict mode → global object.
+
+// Arrow functions:
+
+// No own this.
+
+// Inherit this from surrounding lexical scope.
+
+// Objects:
+
+// Methods → this refers to the object.
+
+// Detached method → this becomes undefined/global.
+
+// Example takeaway:
+
+// js
+const obj = {
+  year: 1991,
+  calcAge() { console.log(2037 - this.year); }
+};
+obj.calcAge(); // works
+const f = obj.calcAge;
+f(); // undefined/global
+// 4. Regular vs. Arrow Functions
+// Arrow functions:
+
+// No this.
+
+// No arguments.
+
+// Regular functions:
+
+// Have their own this.
+
+// Have arguments.
+
+// Example takeaway:
+
+// js
+const obj = {
+  greet: () => console.log(this), // global
+  calcAge() { console.log(this.year); } // object
+};
+// 5. Arguments Object
+// Regular functions: Have arguments (array-like).
+
+// Arrow functions: Do not have arguments.
+
+// Example takeaway:
+
+// js
+function sum(a, b) {
+  console.log(arguments); // works
+}
+const arrowSum = (a, b) => console.log(arguments); // error
+// 6. Object References (Shallow vs. Deep Copy)
+// Objects are reference types → assignment copies reference, not value.
+
+// Shallow copy:
+
+// Spread operator {...obj} or Object.assign.
+
+// Copies only top-level properties.
+
+// Deep copy:
+
+// structuredClone(obj) or libraries like Lodash.
+
+// Copies nested objects/arrays too.
+
+// Example takeaway:
+
+// js
+const obj = { name: 'A', family: ['B'] };
+const shallow = {...obj};
+shallow.family.push('C'); // affects original
+
+const deep = structuredClone(obj);
+deep.family.push('D'); // independent
