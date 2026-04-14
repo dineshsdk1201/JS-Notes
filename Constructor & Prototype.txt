@@ -1,0 +1,116 @@
+📝 Constructor Functions & Prototypes Cheat Sheet
+🔹 Constructor Functions
+A function used with new to create objects.
+
+Convention: name starts with a capital letter (Person, Car).
+
+Steps when called with new:
+
+Creates a new empty object.
+
+Sets the object’s __proto__ to the constructor’s .prototype.
+
+Binds this to the new object.
+
+Returns the object (unless you explicitly return another object).
+
+Example:
+
+js
+function Animal(name) {
+  this.name = name;
+}
+const cat = new Animal("Cat");
+🔹 Prototype Chain
+Every function has a .prototype object.
+
+Objects created with new link their internal __proto__ to that prototype.
+
+Property/method lookup order:
+
+Object itself
+
+Constructor’s prototype
+
+Parent prototypes
+
+Object.prototype
+
+null
+
+Visualization:
+
+Code
+cat → Animal.prototype → Object.prototype → null
+🔹 Adding Methods
+Add shared methods to the constructor’s prototype:
+
+js
+Animal.prototype.speak = function() {
+  console.log(`${this.name} makes a sound.`);
+};
+All instances share one copy of the method.
+
+🔹 Overriding Methods
+Instance level: Override only for one object.
+
+js
+cat.speak = function() { console.log("Modified Speak"); };
+Prototype level: Override for all instances.
+
+js
+Animal.prototype.speak = function() { console.log("New sound"); };
+🔹 Inheritance
+Achieved by chaining constructors and prototypes.
+
+js
+function Dog(name) {
+  Animal.call(this, name); // inherit properties
+}
+Dog.prototype = Object.create(Animal.prototype); // inherit methods
+Dog.prototype.constructor = Dog; // fix constructor reference
+Now dog1 instanceof Dog and dog1 instanceof Animal are both true.
+
+🔹 Constructor Property
+After Object.create, the .constructor points to the parent.
+
+Reset it:
+
+js
+Dog.prototype.constructor = Dog;
+Ensures rex.constructor === Dog.
+
+🔹 Custom Return Values
+If a constructor returns an object, that replaces the new instance.
+
+If it returns a primitive, it’s ignored.
+
+js
+function Custom() {
+  this.name = "Default";
+  return { type: "override" }; // replaces instance
+}
+🔹 Key Use Cases
+Encapsulation: Bundle properties/methods together.
+
+Polymorphism: Override methods in child constructors.
+
+Inheritance: Share behavior across types.
+
+Efficiency: Methods on prototypes are shared, not duplicated.
+
+🔹 Memory Hooks
+Constructor = Blueprint.
+
+Prototype = Shared toolbox.
+
+Chain = Lookup path.
+
+Override = Replace behavior at object or prototype level.
+
+Inheritance = Child asks parent if it doesn’t know.
+
+Constructor reset = Fix the family name after adoption.
+
+🧠 Takeaway:
+Constructor functions + prototypes are the foundation of JavaScript’s object system. ES6 class syntax is just cleaner sugar over these same mechanics — but under the hood, it’s the same prototype chain.
