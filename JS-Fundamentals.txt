@@ -244,3 +244,167 @@ underscore_case ➜ camelCase
 JavaScriptconst rows = text.split('\n');for (const [i, row] of rows.entries()) {  const [first, second] = row.toLowerCase().trim().split('_');  const output = `${first}${second[0].toUpperCase() + second.slice(1)}`;  console.log(output.padEnd(20) + '✅'.repeat(i + 1));}Show more lines
 ✅ Real‑world logic
 ✅ Interview-level question
+ /////////////////////////////////////////////////////////////////////////
+
+
+ ✅ JavaScript Concepts Cheat Sheet (With Simple Examples)
+
+1️⃣ Strict Mode
+Concept
+Enables safer JavaScript by throwing errors for bad practices.
+JavaScript'use strict';x = 10; // ❌ Error (must declare variable)Show more lines
+✅ Prevents silent bugs
+✅ Recommended in all projects
+
+2️⃣ Variables
+const
+Used when value should not be reassigned.
+JavaScriptconst pi = 3.14;Show more lines
+let
+Used when value can change.
+JavaScriptlet count = 0;count++;``Show more lines
+
+3️⃣ Data Types (Basics)
+JavaScript// Numberlet age = 25;// Stringlet name = 'John';// Booleanlet isActive = true;// Undefinedlet value;// Nulllet data = null;``Show more lines
+
+4️⃣ Template Literals
+Concept
+Easier string interpolation.
+JavaScriptconst name = 'Alice';console.log(`Hello ${name}`);Show more lines
+✅ Better than string concatenation
+
+5️⃣ Objects
+Concept
+Group related data using key–value pairs.
+JavaScriptconst user = {  name: 'John',  age: 30,  isAdmin: true};Show more lines
+Access / Modify
+JavaScriptuser.age = 31;user.city = 'Delhi';Show more lines
+
+6️⃣ Arrays
+Concept
+Ordered collection of values.
+JavaScriptconst numbers = [1, 2, 3, 4];Show more lines
+
+7️⃣ Copying Data (Important Concept)
+Copy Array (Shallow)
+JavaScriptconst arr2 = arr1.slice();const arr3 = [...arr1];Show more lines
+Why?
+✅ Avoid unwanted mutation
+
+8️⃣ Functions
+Function Declaration
+JavaScriptfunction greet() {  console.log('Hello');}Show more lines
+Function Expression
+JavaScriptconst greet = function () {  console.log('Hello');};``Show more lines
+Arrow Function
+JavaScriptconst greet = () => console.log('Hello');Show more lines
+
+9️⃣ Callback Functions
+Concept
+Function passed into another function.
+JavaScriptsetTimeout(() => {  console.log('Done');}, 1000);Show more lines
+Used heavily in array methods and events.
+
+🔟 Array Iteration Methods (CORE CONCEPTS)
+
+✅ forEach – Do Something for Each Item
+Used for side effects, not returning values.
+JavaScript[1, 2, 3].forEach(num => {  console.log(num);});``Show more lines
+❌ Does NOT return a new array
+
+✅ map – Transform Array
+JavaScriptconst doubled = [1, 2, 3].map(n => n * 2);// [2, 4, 6]``Show more lines
+✅ Returns new array
+✅ Same length
+
+✅ filter – Select Items
+JavaScriptconst positives = [-1, 2, -3, 4].filter(n => n > 0);// [2, 4]Show more lines
+✅ Returns new array
+✅ Length may change
+
+✅ reduce – Combine Into One Value
+JavaScriptconst sum = [1, 2, 3].reduce((acc, val) => acc + val, 0);// 6Show more lines
+✅ Used for sum, average, max, counts
+
+✅ find – First Match
+JavaScript[5, 8, 12].find(n => n > 6);// 8``Show more lines
+✅ Returns element
+✅ Stops early
+
+✅ some – Any Match?
+JavaScript[1, 2, 3].some(n => n > 2);// trueShow more lines
+
+✅ every – All Match?
+JavaScript[2, 4, 6].every(n => n % 2 === 0);// true``Show more lines
+
+1️⃣1️⃣ Method Chaining
+Concept
+Run multiple operations in a pipeline.
+JavaScriptconst result = [1, -2, 3]  .filter(n => n > 0)  .map(n => n * 2)  .reduce((a, b) => a + b, 0);// 8Show more lines
+✅ Clean
+✅ Readable
+✅ Modern JavaScript style
+
+1️⃣2️⃣ Sorting
+Concept
+Sort values (mutates array).
+JavaScriptnumbers.sort((a, b) => a - b);``Show more lines
+✅ Safe way:
+JavaScriptnumbers.slice().sort();Show more lines
+
+1️⃣3️⃣ Flattening Arrays
+flat
+JavaScript[[1, 2], [3, 4]].flat();// [1,2,3,4]Show more lines
+flatMap
+JavaScriptarr.flatMap(x => x);Show more lines
+
+1️⃣4️⃣ Sets (Remove Duplicates)
+JavaScriptconst unique = [...new Set([1, 1, 2, 3])];// [1,2,3]Show more lines
+
+1️⃣5️⃣ Maps (Key–Value Structure)
+JavaScriptconst map = new Map();map.set('name', 'John');map.get('name');Show more lines
+
+1️⃣6️⃣ Optional Chaining
+Concept
+Avoid runtime errors.
+JavaScriptuser?.address?.city;Show more lines
+✅ Safe access
+✅ Returns undefined if missing
+
+1️⃣7️⃣ Logical Operators
+JavaScripta && b   // ANDa || b   // OR!a       // NOTShow more lines
+Short‑circuit behavior:
+JavaScripttrue && 'Hello'; // 'Hello'false || 'Hi';   // 'Hi'``Show more lines
+
+1️⃣8️⃣ Ternary Operator
+JavaScriptconst result = age >= 18 ? 'Adult' : 'Minor';Show more lines
+✅ Short conditional rendering
+
+1️⃣9️⃣ Modern Array Helpers
+Non‑Mutating Methods
+JavaScriptarr.toSorted();arr.toReversed();arr.with(1, 99);Show more lines
+✅ Original array unchanged
+
+2️⃣0️⃣ DOM Basics
+Select
+JavaScriptconst btn = document.querySelector('.btn');Show more lines
+Update
+JavaScriptbtn.textContent = 'Click';btn.style.color = 'red';Show more lines
+
+2️⃣1️⃣ Events
+JavaScriptbtn.addEventListener('click', () => {  console.log('Clicked');});Show more lines
+Prevent default:
+JavaScripte.preventDefault();``Show more lines
+
+✅ FINAL MINI‑SUMMARY
+Know This by Heart:
+
+map → transform
+filter → select
+reduce → combine
+find → first match
+some → any
+every → all
+forEach → side effects
+
+
