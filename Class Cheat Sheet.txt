@@ -1,0 +1,130 @@
+📖 JavaScript Class Cheat Sheet
+1. Class Declaration
+js
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+const myCar = new Car("Toyota", 2020);
+2. Constructor
+Special method called when creating an object with new.
+
+js
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+const p = new Person("Jonas", 30);
+3. Instance Methods
+Defined inside the class, available to all objects.
+
+js
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age(currentYear) {
+    return currentYear - this.year;
+  }
+}
+const car1 = new Car("Honda", 2018);
+console.log(car1.age(2026)); // 8
+4. Static Methods
+Belong to the class itself, not instances.
+
+js
+class MathHelper {
+  static add(a, b) {
+    return a + b;
+  }
+}
+console.log(MathHelper.add(5, 3)); // 8
+5. Inheritance
+Use extends and super to inherit from another class.
+
+js
+class Vehicle {
+  constructor(type) {
+    this.type = type;
+  }
+  describe() {
+    return `This is a ${this.type}`;
+  }
+}
+
+class Car extends Vehicle {
+  constructor(name, year) {
+    super("car"); // call parent constructor
+    this.name = name;
+    this.year = year;
+  }
+}
+const myCar = new Car("BMW", 2022);
+console.log(myCar.describe()); // This is a car
+6. Encapsulation (Private Fields)
+Use # for private fields.
+
+js
+class BankAccount {
+  #balance = 0;
+  deposit(amount) {
+    this.#balance += amount;
+  }
+  getBalance() {
+    return this.#balance;
+  }
+}
+const acc = new BankAccount();
+acc.deposit(100);
+console.log(acc.getBalance()); // 100
+7. Getters and Setters
+Control property access.
+
+js
+class Person {
+  constructor(name) {
+    this._name = name;
+  }
+  get name() {
+    return this._name.toUpperCase();
+  }
+  set name(newName) {
+    this._name = newName;
+  }
+}
+const p = new Person("Jonas");
+console.log(p.name); // JONAS
+p.name = "Steven";
+console.log(p.name); // STEVEN
+8. Class Expressions
+Classes can be defined as expressions.
+
+js
+const Car = class {
+  constructor(name) {
+    this.name = name;
+  }
+};
+const c = new Car("Audi");
+9. Important Notes
+Classes are syntactic sugar over prototypes.
+
+Methods are stored on the prototype, not copied into each object.
+
+You must use new to instantiate a class.
+
+⚖️ Quick Reference Table
+Concept	Keyword/Feature	Example
+Constructor	constructor()	new Car("Ford", 2014)
+Instance Method	Defined inside class	car.age(2026)
+Static Method	static	MathHelper.add(5,3)
+Inheritance	extends, super	class Car extends Vehicle
+Encapsulation	#privateField	#balance
+Getters/Setters	get, set	get name() {}
+
+✅ Key Takeaway: Classes provide a clean, structured way to do object-oriented programming in JavaScript. They support constructors, methods, inheritance, encapsulation, and static members, making code more organized and maintainable.
