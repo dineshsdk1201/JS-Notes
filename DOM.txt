@@ -1,0 +1,110 @@
+📖 DOM Cheat Sheet (Basic → Medium → Advanced)
+🟢 Basic Concepts
+1. DOM Tree
+HTML is parsed into a tree of nodes.
+
+Root: document → <html> → <body> → elements → text nodes.
+
+2. Selecting Elements
+js
+document.getElementById("id");
+document.getElementsByClassName("class");
+document.getElementsByTagName("p");
+document.querySelector(".class");
+document.querySelectorAll("p");
+3. Traversing
+js
+element.parentNode;
+element.children;
+element.nextElementSibling;
+element.previousElementSibling;
+4. Manipulating Content
+js
+element.innerHTML = "Hello!";
+element.textContent = "Hello!";
+element.setAttribute("src", "image.png");
+element.style.color = "red";
+5. Creating & Removing
+js
+const div = document.createElement("div");
+div.textContent = "New!";
+document.body.appendChild(div);
+div.remove();
+6. Events
+js
+button.addEventListener("click", () => alert("Clicked!"));
+input.addEventListener("keydown", e => console.log(e.key));
+7. ClassList API
+js
+element.classList.add("active");
+element.classList.remove("hidden");
+element.classList.toggle("highlight");
+🟡 Medium Concepts
+8. Event Delegation
+js
+list.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") e.target.style.color = "blue";
+});
+9. Forms & Inputs
+js
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(input.value);
+});
+10. DOM Collections vs NodeLists
+js
+document.getElementsByTagName("li"); // live
+document.querySelectorAll("li");     // static
+11. Dataset API
+html
+<button data-user-id="42">Click</button>
+<script>
+  console.log(document.querySelector("button").dataset.userId);
+</script>
+12. Computed Styles
+js
+const styles = getComputedStyle(document.querySelector("h1"));
+console.log(styles.color);
+🔴 Advanced Concepts
+13. Traversal APIs
+js
+btn.closest("body"); 
+btn.matches("button[data-user-id]");
+14. MutationObserver
+js
+const observer = new MutationObserver(mutations => console.log(mutations));
+observer.observe(document.getElementById("list"), { childList: true });
+15. Shadow DOM
+js
+const shadow = host.attachShadow({ mode: "open" });
+shadow.innerHTML = `<style>p{color:red}</style><p>Shadow DOM</p>`;
+16. Templates & Fragments
+html
+<template id="tpl"><li class="item">Template Item</li></template>
+<script>
+  const clone = tpl.content.cloneNode(true);
+  clone.querySelector(".item").textContent = "New Item";
+  list.appendChild(clone);
+</script>
+17. Performance Optimization
+js
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 1000; i++) {
+  const li = document.createElement("li");
+  li.textContent = "Item " + i;
+  fragment.appendChild(li);
+}
+list.appendChild(fragment);
+18. Accessibility (a11y)
+html
+<button aria-label="Close dialog">X</button>
+js
+document.querySelector("input").focus();
+✅ Key Takeaways
+Basic: selection, traversal, manipulation, events, classList.
+
+Medium: delegation, forms, datasets, computed styles.
+
+Advanced: traversal APIs, mutation observers, shadow DOM, templates, performance, accessibility.
+
+Together, these form the complete DOM toolkit you need to build interactive, efficient, and accessible web applications.
