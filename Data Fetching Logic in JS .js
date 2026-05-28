@@ -96,3 +96,22 @@ let timer;
       fetchData();
       fetchData();
       fetchData(); // Only first executes immediately
+
+
+//Request Validation
+      //Request validation ensures only valid data is sent before making an API call.
+      function fetchUser(email) {
+        if (!email || !email.includes("@")) {
+          console.log("Invalid email, not calling API");
+          return;
+        }
+
+        fetch(`https://api.example.com/user?email=${email}`)
+          .then((res) => res.json())
+          .then((data) => console.log(data));
+      }
+
+      // Usage
+      fetchUser(""); // ❌ blocked
+      fetchUser("invalidEmail"); // ❌ blocked
+      fetchUser("test@mail.com"); // ✅ API call
