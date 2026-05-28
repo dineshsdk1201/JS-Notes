@@ -72,8 +72,9 @@ let timer;
         fetchData(e.target.value);
       });
 
-//Throttling
+      //Throttling
       //Throttling ensures a function is executed at most once in a fixed time interval.
+//Eg: 1
       function throttle(fn, limit) {
         let lastCall = 0;
 
@@ -94,6 +95,20 @@ let timer;
 
       // Simulate rapid calls
       fetchData();
+      fetchData();
+      fetchData(); // Only first executes immediately
+
+//Eg:2
+  const fetchData = function (limit) {
+        let lastCall = 0;
+        let date = Date.now();
+        if (date - lastCall >= limit) {
+          console.log("Fetching");
+        }
+      };
+
+      // Simulate rapid calls
+      fetchData(5000);
       fetchData();
       fetchData(); // Only first executes immediately
 
