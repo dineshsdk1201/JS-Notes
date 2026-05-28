@@ -71,3 +71,28 @@ let timer;
       ip.addEventListener("input", (e) => {
         fetchData(e.target.value);
       });
+
+//Throttling
+      //Throttling ensures a function is executed at most once in a fixed time interval.
+      function throttle(fn, limit) {
+        let lastCall = 0;
+
+        return function (...args) {
+          const now = Date.now();
+
+          if (now - lastCall >= limit) {
+            fn(args);
+            lastCall = now;
+          }
+        };
+      }
+
+      // Usage
+      const fetchData = throttle(() => {
+        console.log("Fetching data...");
+      }, 5000);
+
+      // Simulate rapid calls
+      fetchData();
+      fetchData();
+      fetchData(); // Only first executes immediately
