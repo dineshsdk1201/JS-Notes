@@ -685,4 +685,54 @@ class Manager extends EmployeeMaster {
     console.log(`${this.name} manages ${this.teamSize} people`);
   }
 }
-``
+
+
+
+////////////////////////Adding Comment Notes for future reference//////////////////
+
+/**
+ * =========================================
+ * 🚀 JavaScript Classes - Quick Reference
+ * =========================================
+ *
+ * 📌 Key Concepts
+ * - Class Declaration: `class Person { ... }`
+ * - Class Expression: `const MyClass = class { ... }`
+ * - Constructor: special method for initialization
+ * - Instance Methods: functions tied to object instances
+ * - Getters & Setters: controlled property access
+ * - Static Methods & Properties: belong to the class itself
+ * - Private Fields (#): encapsulated data
+ * - Inheritance: `class Dog extends Animal { ... }`
+ * - Super Keyword: call parent constructor/methods
+ * - Method Overriding: redefine parent methods
+ * - instanceof: check object type
+ *
+ * 🛠 Advanced Features
+ * - Prototype Chain: shared methods across instances
+ * - Computed Method Names: dynamic method names
+ * - Class Hoisting: not hoisted (TDZ applies)
+ * - Extending Built-in Classes: e.g. Array, Error
+ * - Static Initialization Block: run once at class load
+ * - Mixins: combine behaviors into a class
+ *
+ * ✅ Best Practices
+ * - Use classes for real-world entities
+ * - Prefer composition over deep inheritance
+ * - Use private fields for encapsulation
+ * - Use static methods for utilities
+ *
+ * ⚠️ Common Mistakes
+ * - Forgetting `new` when instantiating
+ * - Using `this` before `super()` in subclasses
+ * - Accessing private fields outside the class
+ * - Misunderstanding prototype methods
+ *
+ * 🌍 Real-World Examples
+ * - User/Admin systems with permissions
+ * - Employee/Manager hierarchies
+ * - Custom error handling
+ *
+ * =========================================
+ */
+
