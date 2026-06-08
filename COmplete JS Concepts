@@ -1,0 +1,793 @@
+# JavaScript Complete Concepts List
+
+A structured JavaScript revision list from basics to advanced.
+
+---
+
+## 1. JavaScript Basics
+- What is JavaScript
+- JavaScript vs ECMAScript
+- JavaScript engines
+  - V8
+  - SpiderMonkey
+  - JavaScriptCore
+- JavaScript environments
+  - Browser
+  - Node.js
+  - Deno
+  - Bun
+- Single-threaded nature of JavaScript
+- Interpreted / JIT compiled concepts
+- Strict mode
+- Case sensitivity
+- Statements
+- Expressions
+- Comments
+- Semicolons
+- Automatic Semicolon Insertion (ASI)
+
+---
+
+## 2. Variables and Declarations
+- var
+- let
+- const
+- Variable naming rules
+- Variable assignment
+- Reassignment
+- Redeclaration
+- Scope
+  - Global scope
+  - Function scope
+  - Block scope
+  - Module scope
+- Hoisting
+- Temporal Dead Zone (TDZ)
+
+---
+
+## 3. Data Types
+### Primitive Types
+- string
+- number
+- bigint
+- boolean
+- undefined
+- symbol
+- null
+
+### Non-Primitive Type
+- object
+
+### Related Concepts
+- typeof
+- Primitive vs reference types
+- Dynamic typing
+- Wrapper objects
+  - String
+  - Number
+  - Boolean
+
+---
+
+## 4. Type Conversion and Coercion
+- Explicit conversion
+  - String()
+  - Number()
+  - Boolean()
+  - parseInt()
+  - parseFloat()
+- Implicit coercion
+- Truthy values
+- Falsy values
+- Loose equality (==)
+- Strict equality (===)
+- != vs !==
+- NaN
+- Infinity
+- -Infinity
+- Object.is()
+
+---
+
+## 5. Operators
+### Arithmetic Operators
+- +
+- -
+- *
+- /
+- %
+- **
+- ++
+- --
+
+### Assignment Operators
+- =
+- +=
+- -=
+- *=
+- /=
+- %=
+
+### Comparison Operators
+- >
+- <
+- >=
+- <=
+- ==
+- ===
+- !=
+- !==
+
+### Logical Operators
+- &&
+- ||
+- !
+
+### Other Operators
+- Ternary operator
+- typeof
+- delete
+- in
+- instanceof
+- nullish coalescing (??)
+- optional chaining (?.)
+- spread (...)
+- rest (...)
+- bitwise operators
+- comma operator
+
+---
+
+## 6. Control Flow
+- if
+- else
+- else if
+- switch
+- break
+- continue
+- return
+
+---
+
+## 7. Loops and Iteration
+- for loop
+- while loop
+- do...while loop
+- for...in
+- for...of
+- break
+- continue
+- labeled statements
+
+---
+
+## 8. Strings
+- String basics
+- String immutability
+- Template literals
+- String interpolation
+- Multiline strings
+
+### Common String Methods
+- length
+- toUpperCase()
+- toLowerCase()
+- trim()
+- slice()
+- substring()
+- replace()
+- replaceAll()
+- split()
+- includes()
+- startsWith()
+- endsWith()
+- indexOf()
+- padStart()
+- padEnd()
+- repeat()
+
+### Advanced String Concepts
+- Unicode
+- UTF
+- Code units vs characters
+- Escape sequences
+
+---
+
+## 9. Numbers and Math
+- Number type
+- Integers and floats
+- Floating-point precision
+- Safe integers
+- BigInt
+
+### Number Methods
+- Number.isNaN()
+- Number.isInteger()
+- Number.parseInt()
+- Number.parseFloat()
+- toFixed()
+- toPrecision()
+
+### Math Object
+- Math.round()
+- Math.floor()
+- Math.ceil()
+- Math.trunc()
+- Math.random()
+- Math.max()
+- Math.min()
+- Math.pow()
+- Math.sqrt()
+- Math.abs()
+
+---
+
+## 10. Booleans
+- true
+- false
+- Boolean conversion
+- Short-circuit evaluation
+- Logical expressions
+
+---
+
+## 11. Arrays
+- Array basics
+- Creating arrays
+- Accessing array elements
+- Updating array elements
+- Array length
+- Sparse arrays
+- Multidimensional arrays
+
+### Mutating Array Methods
+- push()
+- pop()
+- shift()
+- unshift()
+- splice()
+- sort()
+- reverse()
+
+### Non-Mutating Array Methods
+- concat()
+- slice()
+- map()
+- filter()
+- reduce()
+- find()
+- findIndex()
+- some()
+- every()
+- includes()
+- join()
+- flat()
+- flatMap()
+- toSorted()
+- toReversed()
+- toSpliced()
+
+### Iteration Methods
+- forEach()
+- map()
+- filter()
+- reduce()
+
+### Array Concepts
+- Array destructuring
+- Spread with arrays
+- Rest with arrays
+- Shallow copy vs deep copy
+
+---
+
+## 12. Objects
+- Object basics
+- Key-value pairs
+- Creating objects
+  - Object literal
+  - new Object()
+  - constructor functions
+  - Object.create()
+  - classes
+
+### Object Access
+- Dot notation
+- Bracket notation
+
+### Object Features
+- Properties
+- Methods
+- Dynamic properties
+- Computed property names
+- Nested objects
+- Symbol keys
+
+### Object Utilities
+- Object.keys()
+- Object.values()
+- Object.entries()
+- Object.assign()
+- Object.freeze()
+- Object.seal()
+- Object.preventExtensions()
+
+### Property Concepts
+- hasOwnProperty()
+- Object.hasOwn()
+- delete
+- Property descriptors
+  - writable
+  - enumerable
+  - configurable
+- Getters
+- Setters
+- Shallow copy vs deep copy
+
+---
+
+## 13. Functions
+- Function declaration
+- Function expression
+- Anonymous functions
+- Named function expressions
+- Arrow functions
+- Parameters
+- Arguments
+- Default parameters
+- Rest parameters
+- Return values
+- Higher-order functions
+- Callback functions
+- First-class functions
+- Pure functions
+- Side effects
+- Recursion
+- IIFE
+- arguments object
+- Function hoisting
+
+### Important Function Concepts
+- Lexical scope
+- Function scope
+- Closure
+- Scope chain
+- this keyword
+- call()
+- apply()
+- bind()
+- Currying
+- Partial application
+- Function composition
+- Memoization
+- Debouncing
+- Throttling
+
+---
+
+## 14. Scope and Execution Context
+- Global execution context
+- Function execution context
+- Call stack
+- Lexical environment
+- Variable environment
+- Scope chain
+- Closure internals
+
+---
+
+## 15. this Keyword
+- Global this
+- Function this
+- Method this
+- Constructor this
+- Event handler this
+- Arrow function this
+- Explicit binding
+  - call()
+  - apply()
+  - bind()
+
+---
+
+## 16. Prototypes and Inheritance
+- Prototype-based inheritance
+- Prototype chain
+- __proto__
+- prototype property
+- Constructor functions
+- Method sharing
+- Inheritance through prototypes
+- Property shadowing
+- hasOwnProperty()
+
+---
+
+## 17. Classes
+- class keyword
+- constructor
+- Instance methods
+- Static methods
+- Static properties
+- Inheritance with extends
+- super
+- Getters and setters in classes
+- Public fields
+- Private fields (#field)
+- Class expressions
+- Classes vs prototypes
+
+---
+
+## 18. Error Handling
+- Syntax errors
+- Runtime errors
+- Logical errors
+- try
+- catch
+- finally
+- throw
+
+### Built-in Error Types
+- Error
+- TypeError
+- ReferenceError
+- SyntaxError
+- RangeError
+- URIError
+- EvalError
+
+### Advanced Error Concepts
+- Custom errors
+- Error propagation
+- Stack traces
+
+---
+
+## 19. Dates and Time
+- Date object
+- Timestamps
+- Parsing dates
+- Formatting dates
+- UTC vs local time
+- Timezones
+- Date arithmetic
+- Date limitations
+
+---
+
+## 20. Regular Expressions
+- RegExp basics
+- Regex literals
+- RegExp constructor
+- Flags
+  - g
+  - i
+  - m
+  - s
+  - u
+  - y
+- Character classes
+- Quantifiers
+- Groups
+- Capturing groups
+- Alternation
+- Anchors
+- Lookahead
+- Lookbehind
+
+### Regex Methods
+- test()
+- exec()
+- String methods with regex
+
+---
+
+## 21. JSON
+- What is JSON
+- JSON.stringify()
+- JSON.parse()
+- JSON limitations
+
+---
+
+## 22. Advanced Built-in Objects
+### Map and Set
+- Map
+- Set
+- WeakMap
+- WeakSet
+
+### Symbol
+- Unique identifiers
+- Symbol keys
+- Well-known symbols
+
+### Iterator-Related
+- Iterable protocol
+- Iterator protocol
+- Symbol.iterator
+
+### Generator-Related
+- Generators
+- function*
+- yield
+- Async generators
+
+### Binary Data
+- ArrayBuffer
+- Typed arrays
+- DataView
+
+### Other Advanced Objects
+- Promise
+- Proxy
+- Reflect
+- Intl
+
+---
+
+## 23. Destructuring
+- Array destructuring
+- Object destructuring
+- Default values
+- Nested destructuring
+- Rest in destructuring
+- Aliasing properties
+
+---
+
+## 24. Spread and Rest
+- Spread in arrays
+- Spread in objects
+- Spread in function calls
+- Rest parameters
+- Rest in destructuring
+
+---
+
+## 25. Modules
+- Why modules
+- ES modules
+- export
+- export default
+- import
+- Named exports
+- Default exports
+- Alias imports
+- Namespace imports
+- Dynamic import()
+- Module scope
+
+### CommonJS
+- require()
+- module.exports
+
+### Module Concepts
+- ES Modules vs CommonJS
+- Tree shaking
+- Circular dependencies
+
+---
+
+## 26. Asynchronous JavaScript
+- Synchronous vs asynchronous
+- Callback functions
+- Callback hell
+- Timers
+  - setTimeout()
+  - setInterval()
+  - clearTimeout()
+  - clearInterval()
+
+### Promises
+- Promise basics
+- pending
+- fulfilled
+- rejected
+- then()
+- catch()
+- finally()
+
+### Promise Static Methods
+- Promise.resolve()
+- Promise.reject()
+- Promise.all()
+- Promise.allSettled()
+- Promise.race()
+- Promise.any()
+
+### Async/Await
+- async functions
+- await
+- Error handling with async/await
+- Sequential async
+- Parallel async
+- Promise chaining
+- Cancellation patterns
+- AbortController
+
+---
+
+## 27. Event Loop and Scheduling
+- Call stack
+- Web APIs / Host APIs
+- Callback queue
+- Task queue
+- Macrotasks
+- Microtasks
+- Event loop
+- Execution order
+- queueMicrotask()
+
+---
+
+## 28. DOM and Browser APIs
+### DOM Basics
+- DOM
+- BOM
+- window
+- document
+- DOM tree
+
+### Selecting Elements
+- getElementById()
+- getElementsByClassName()
+- getElementsByTagName()
+- querySelector()
+- querySelectorAll()
+
+### DOM Manipulation
+- textContent
+- innerText
+- innerHTML
+- setAttribute()
+- getAttribute()
+- classList
+- style
+- createElement()
+- appendChild()
+- append()
+- prepend()
+- remove()
+- replaceChild()
+
+### DOM Traversal
+- parentElement
+- children
+- firstElementChild
+- lastElementChild
+- nextElementSibling
+- previousElementSibling
+
+---
+
+## 29. Events
+- Event basics
+- Event object
+- addEventListener()
+- removeEventListener()
+- Inline events
+- Event handler properties
+
+### Event Types
+- click
+- dblclick
+- input
+- change
+- submit
+- keydown
+- keyup
+- mouseover
+- mouseout
+- focus
+- blur
+- load
+- scroll
+
+### Event Flow
+- Event bubbling
+- Event capturing
+- Event delegation
+- preventDefault()
+- stopPropagation()
+
+---
+
+## 30. Forms and Validation
+- Form elements
+- Form submission
+- Input handling
+- Validation
+- Constraint validation API
+- Preventing default submit behavior
+- Working with form data
+- FormData
+
+---
+
+## 31. Browser Storage
+- localStorage
+- sessionStorage
+- cookies
+- IndexedDB
+
+---
+
+## 32. Browser Networking APIs
+- Fetch API
+- XMLHttpRequest
+- AJAX concept
+- CORS
+- WebSockets
+- Server-Sent Events (SSE)
+
+---
+
+## 33. Browser Advanced APIs
+- Geolocation API
+- Canvas API
+- Web Workers
+- Service Workers
+- Notifications API
+- Clipboard API
+- Intersection Observer
+- Mutation Observer
+- Resize Observer
+- History API
+- Location API
+
+---
+
+## 34. Node.js Concepts
+- Node.js runtime
+- Global objects in Node
+- process
+- Buffer
+- fs module
+- path module
+- http module
+- streams
+- EventEmitter
+- timers in Node
+- Node module system
+- package.json
+- npm
+- yarn
+- pnpm
+- environment variables
+- REPL
+- child_process
+- worker_threads
+- CommonJS vs ESM in Node
+
+---
+
+## 35. Memory and Performance
+- Stack vs heap
+- Primitive vs reference storage
+- Garbage collection
+- Memory leaks
+- Closures and memory retention
+- Detached DOM nodes
+- Performance bottlenecks
+- Big-O basics
+- Lazy loading
+- Code splitting
+- Memoization
+- Debounce
+- Throttle
+- Reflow
+- Repaint
+
+---
+
+## 36. Functional Programming in JavaScript
+- First-class functions
+- Higher-order functions
+- Pure functions
+- Immutability
+- Referential transparency
+- Composition
