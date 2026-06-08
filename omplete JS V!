@@ -1,0 +1,1487 @@
+1) What JavaScript Is
+1.1 JavaScript vs ECMAScript
+
+JavaScript = the programming language used in browsers and many runtimes.
+ECMAScript (ES) = the standard/specification JavaScript follows.
+Versions:
+
+ES5
+ES6 / ES2015
+ES2016+
+
+
+Modern JS = ES6+ features + browser/Node APIs.
+
+1.2 JavaScript Engines
+
+V8 (Chrome, Node.js)
+SpiderMonkey (Firefox)
+JavaScriptCore (Safari)
+
+1.3 JavaScript Environments
+
+Browser
+Node.js
+Deno
+Bun
+
+1.4 Single-threaded Nature
+
+JavaScript runs on a single main thread
+But asynchronous behavior is handled by:
+
+browser APIs / Node APIs
+event loop
+callback queues / microtask queues
+
+
+
+
+2) Syntax Fundamentals
+2.1 Statements
+
+A statement is an instruction executed by JS.
+Example:
+
+variable declaration
+if statement
+loop
+function declaration
+
+
+
+2.2 Expressions
+
+Anything that produces a value.
+Example:
+
+2 + 2
+x = 10
+myFunc()
+
+
+
+2.3 Comments
+
+Single-line: //
+Multi-line: /* ... */
+
+2.4 Semicolons
+
+Optional in many cases
+JS has ASI (Automatic Semicolon Insertion)
+Still safer to use semicolons consistently in many teams
+
+2.5 Case Sensitivity
+
+JS is case-sensitive.
+myVar and myvar are different.
+
+2.6 Strict Mode
+
+"use strict";
+Prevents some unsafe behavior
+Makes some silent errors throw actual errors
+
+
+3) Variables and Declarations
+3.1 var
+
+Function scoped
+Hoisted
+Can be redeclared
+Legacy; avoid in modern code unless needed
+
+3.2 let
+
+Block scoped
+Can be reassigned
+Cannot be redeclared in same scope
+
+3.3 const
+
+Block scoped
+Cannot be reassigned
+For objects/arrays, internal contents can still change
+
+3.4 Scope
+
+Global scope
+Function scope
+Block scope
+Module scope
+
+3.5 Hoisting
+
+Declarations are moved conceptually to top of scope
+var is hoisted differently than let/const
+Functions can also be hoisted
+
+3.6 Temporal Dead Zone (TDZ)
+
+let and const exist before declaration but cannot be accessed until initialized
+
+
+4) Data Types
+JavaScript has primitive and reference/object types.
+4.1 Primitive Types
+
+string
+number
+bigint
+boolean
+undefined
+symbol
+null
+
+4.2 Non-Primitive Type
+
+object
+
+4.3 typeof
+
+Used to check data types
+Special cases:
+
+typeof null === "object" (historic bug)
+arrays return "object"
+
+
+
+4.4 Primitive vs Reference
+
+Primitive values are copied by value
+Objects/arrays/functions are assigned by reference
+
+4.5 Wrapper Objects
+
+String
+Number
+Boolean
+Primitive values can temporarily behave like objects
+
+
+5) Type Conversion and Coercion
+5.1 Explicit Conversion
+
+String(value)
+Number(value)
+Boolean(value)
+parseInt()
+parseFloat()
+
+5.2 Implicit Coercion
+JS automatically converts values in many cases.
+Examples:
+
+string + number
+comparison
+truthy/falsy checks
+
+5.3 Truthy and Falsy
+Falsy Values
+
+false
+0
+-0
+0n
+""
+null
+undefined
+NaN
+
+Everything else is generally truthy.
+5.4 Equality Rules
+
+== → loose equality (does type coercion)
+=== → strict equality (recommended)
+!=
+!==
+
+5.5 Special Numeric Values
+
+NaN
+Infinity
+-Infinity
+
+5.6 Object.is()
+
+More precise comparison than === in some edge cases
+
+
+6) Operators
+6.1 Arithmetic Operators
+
++
+-
+*
+/
+%
+**
+++
+--
+
+6.2 Assignment Operators
+
+=
++=
+-=
+*=
+/=
+%=
+etc.
+
+6.3 Comparison Operators
+
+>
+<
+>=
+<=
+==
+===
+!=
+!==
+
+6.4 Logical Operators
+
+&&
+||
+!
+
+6.5 Nullish Coalescing
+
+??
+Uses right side only if left is null or undefined
+
+6.6 Optional Chaining
+
+?.
+Avoids errors when accessing nested properties
+
+6.7 Bitwise Operators
+
+&
+|
+^
+~
+<<
+>>
+>>>
+
+6.8 Ternary Operator
+
+condition ? expr1 : expr2
+
+6.9 delete
+
+Removes object property
+
+6.10 in
+
+Checks if property exists in object
+
+6.11 instanceof
+
+Checks prototype-chain relationship
+
+6.12 typeof
+
+Type inspection
+
+6.13 Comma Operator
+
+Evaluates multiple expressions, returns last one
+
+6.14 Spread and Rest
+
+...
+Spread expands
+Rest collects
+
+
+7) Control Flow
+7.1 if
+7.2 else
+7.3 else if
+7.4 switch
+7.5 break
+7.6 continue
+7.7 return
+
+8) Loops and Iteration
+8.1 for
+8.2 while
+8.3 do...while
+8.4 for...in
+
+Iterates over enumerable object keys
+
+8.5 for...of
+
+Iterates over iterable values
+
+8.6 Loop Control
+
+break
+continue
+labeled statements (rare)
+
+
+9) Strings
+9.1 String Basics
+
+Immutable sequence of characters
+
+9.2 Template Literals
+
+Backticks
+String interpolation
+Multiline strings
+
+9.3 Common String Methods
+
+.length
+.toUpperCase()
+.toLowerCase()
+.trim()
+.slice()
+.substring()
+.replace()
+.replaceAll()
+.split()
+.includes()
+.startsWith()
+.endsWith()
+.indexOf()
+.padStart()
+.padEnd()
+.repeat()
+
+9.4 Unicode / UTF Concepts
+
+Code units vs characters
+Emojis and surrogate pairs (advanced consideration)
+
+
+10) Numbers and Math
+10.1 Number Type
+
+JS generally uses floating-point numbers
+
+10.2 Integer and Float Behavior
+
+All standard numbers are IEEE 754 floating-point
+
+10.3 Precision Problems
+
+0.1 + 0.2 !== 0.3 due to floating-point representation
+
+10.4 Number Methods/Helpers
+
+Number.isNaN()
+Number.isInteger()
+Number.parseInt()
+Number.parseFloat()
+.toFixed()
+.toPrecision()
+
+10.5 Math Object
+
+Math.round
+Math.floor
+Math.ceil
+Math.random
+Math.max
+Math.min
+Math.pow
+Math.sqrt
+Math.abs
+
+10.6 BigInt
+
+For very large integers beyond Number.MAX_SAFE_INTEGER
+
+
+11) Booleans
+11.1 Boolean Values
+
+true
+false
+
+11.2 Boolean Conversion
+
+Boolean(value)
+
+11.3 Short-Circuiting
+
+&& and || return values, not always just true/false
+
+
+12) Arrays
+12.1 Array Basics
+
+Ordered collection
+Zero-based indexing
+
+12.2 Creating Arrays
+
+literal []
+Array()
+Array.from()
+Array.of()
+
+12.3 Accessing/Updating Elements
+
+index based
+
+12.4 Array Length
+
+.length
+
+12.5 Sparse Arrays
+
+Arrays can have “empty slots”
+
+12.6 Common Mutating Methods
+
+.push()
+.pop()
+.shift()
+.unshift()
+.splice()
+.sort()
+.reverse()
+
+12.7 Common Non-Mutating Methods
+
+.concat()
+.slice()
+.map()
+.filter()
+.reduce()
+.find()
+.findIndex()
+.some()
+.every()
+.includes()
+.join()
+.flat()
+.flatMap()
+.toSorted()
+.toReversed()
+.toSpliced()
+
+12.8 Iteration Methods
+
+.forEach()
+.map()
+.filter()
+.reduce()
+
+12.9 Multi-dimensional Arrays
+
+arrays inside arrays
+
+12.10 Destructuring Arrays
+
+extracting values into variables
+
+
+13) Objects
+13.1 Object Basics
+
+Collection of key-value pairs
+
+13.2 Creating Objects
+
+object literal {}
+new Object()
+constructor functions
+classes
+Object.create()
+
+13.3 Property Access
+
+dot notation
+bracket notation
+
+13.4 Property Types
+
+string keys
+symbol keys
+
+13.5 Methods
+
+Functions stored as object properties
+
+13.6 Dynamic Properties
+
+computed property names
+
+13.7 Checking Properties
+
+in
+hasOwnProperty()
+Object.hasOwn()
+
+13.8 Deleting Properties
+
+delete obj.key
+
+13.9 Enumerating Properties
+
+for...in
+Object.keys()
+Object.values()
+Object.entries()
+
+13.10 Copying/Merging Objects
+
+spread operator
+Object.assign()
+
+13.11 Shallow Copy vs Deep Copy
+
+Spread/Object.assign are shallow
+Deep copy concepts:
+
+structured cloning
+manual copy
+JSON parsing/stringifying (limited)
+
+
+
+13.12 Property Descriptors
+
+writable
+enumerable
+configurable
+value
+getter/setter
+
+13.13 Getters and Setters
+
+custom read/write behavior
+
+13.14 Freezing/Sealing
+
+Object.freeze()
+Object.seal()
+Object.preventExtensions()
+
+
+14) Functions
+14.1 Function Declaration
+14.2 Function Expression
+14.3 Anonymous Functions
+14.4 Named Function Expressions
+14.5 Arrow Functions
+
+No own this
+No own arguments
+Not suitable as constructors
+
+14.6 Parameters and Arguments
+
+Function parameters vs passed arguments
+
+14.7 Default Parameters
+14.8 Rest Parameters
+14.9 Spread in Function Calls
+14.10 Return Values
+14.11 Higher-Order Functions
+
+Functions that take/return functions
+
+14.12 Callback Functions
+14.13 Pure Functions
+14.14 Side Effects
+14.15 Recursion
+14.16 Closure
+
+Function remembers lexical scope
+
+14.17 Lexical Scope
+14.18 Function Scope
+14.19 IIFE
+
+Immediately Invoked Function Expression
+
+14.20 arguments Object
+
+Available in non-arrow functions
+
+14.21 First-Class Functions
+
+Functions can be stored, passed, and returned
+
+14.22 Function Hoisting
+
+Function declarations are hoisted differently than expressions
+
+14.23 this
+One of the biggest JS concepts:
+
+global context
+object method context
+constructor context
+explicit binding
+arrow function lexical this
+
+14.24 call()
+14.25 apply()
+14.26 bind()
+14.27 Currying
+14.28 Partial Application
+14.29 Function Composition
+14.30 Memoization
+14.31 Debouncing
+14.32 Throttling
+
+15) Scope and Execution Context
+15.1 Global Execution Context
+15.2 Function Execution Context
+15.3 Call Stack
+15.4 Lexical Environment
+15.5 Variable Environment
+15.6 Scope Chain
+15.7 Closures in Depth
+These are core for interviews and debugging.
+
+16) this Keyword (Deep Revision Section)
+this is determined by how a function is called, not where it is written (except arrow functions).
+16.1 Global this
+16.2 Function this
+16.3 Method this
+16.4 Constructor this
+16.5 Event Handler this
+16.6 Arrow Function this
+16.7 Explicit Binding with bind/call/apply
+
+17) Prototypes and Inheritance
+This is one of the most important “real JS” concepts.
+17.1 Prototype-Based Language
+
+JS inheritance is prototype-based
+
+17.2 Prototype Chain
+
+Objects inherit from other objects
+
+17.3 __proto__
+
+Legacy way to access object prototype
+
+17.4 prototype
+
+Property on constructor functions
+
+17.5 Constructor Functions
+
+pre-class style object construction
+
+17.6 Inheritance via Prototype Chain
+17.7 Method Sharing via Prototype
+17.8 Object.create()
+17.9 Shadowing Properties
+17.10 hasOwnProperty()
+
+18) Classes (Modern Syntax over Prototypes)
+18.1 class
+18.2 constructor
+18.3 Instance Methods
+18.4 Static Methods
+18.5 Static Properties
+18.6 Inheritance with extends
+18.7 super
+18.8 Getters/Setters in Classes
+18.9 Private Fields
+
+#field
+
+18.10 Public Fields
+18.11 Class Expressions
+18.12 Under the Hood: classes still use prototypes
+
+19) Error Handling
+19.1 Syntax Errors
+19.2 Runtime Errors
+19.3 Logical Errors
+19.4 try
+19.5 catch
+19.6 finally
+19.7 throw
+19.8 Built-in Error Types
+
+Error
+TypeError
+ReferenceError
+SyntaxError
+RangeError
+URIError
+EvalError (rare/legacy)
+
+19.9 Custom Errors
+19.10 Error Propagation
+19.11 Stack Traces
+
+20) Dates and Time
+20.1 Date Object
+20.2 Timestamps
+20.3 Parsing Dates
+20.4 Formatting Dates
+20.5 UTC vs Local Time
+20.6 Timezone Issues
+20.7 Date Arithmetic
+20.8 Limitations of Date
+(important in real projects)
+
+21) Regular Expressions
+21.1 RegExp Basics
+21.2 Literals vs Constructor
+21.3 Flags
+
+g
+i
+m
+s
+u
+y
+
+21.4 Character Classes
+21.5 Quantifiers
+21.6 Groups and Capturing
+21.7 Alternation
+21.8 Anchors
+21.9 Lookaheads / Lookbehinds
+21.10 Regex Methods
+
+.test()
+.exec()
+string methods with regex
+
+
+22) JSON
+22.1 What JSON Is
+
+Data interchange format
+
+22.2 JSON.stringify()
+22.3 JSON.parse()
+22.4 Limitations
+
+Functions, symbols, undefined are not preserved normally
+
+
+23) Advanced Built-in Objects
+23.1 Map
+
+Key-value collection
+Any value can be a key
+
+23.2 Set
+
+Unique values
+
+23.3 WeakMap
+23.4 WeakSet
+23.5 Symbol
+
+Unique identifiers
+Often used for hidden-ish keys/meta behavior
+
+23.6 Iterator and Iterable Protocols
+
+Symbol.iterator
+
+23.7 Generators
+
+function*
+yield
+
+23.8 Async Generators
+23.9 Typed Arrays
+23.10 ArrayBuffer
+23.11 DataView
+23.12 Promise
+23.13 Proxy
+23.14 Reflect
+23.15 Intl
+
+internationalization APIs
+
+
+24) Destructuring
+24.1 Array Destructuring
+24.2 Object Destructuring
+24.3 Default Values in Destructuring
+24.4 Nested Destructuring
+24.5 Rest in Destructuring
+24.6 Aliasing Properties
+
+25) Spread and Rest
+25.1 Spread in Arrays
+25.2 Spread in Objects
+25.3 Spread in Function Calls
+25.4 Rest Parameters
+25.5 Rest in Destructuring
+
+26) Modules
+26.1 Why Modules
+
+Scope isolation
+reusable code
+maintainability
+
+26.2 ES Modules
+
+export
+export default
+import
+
+26.3 Named Exports
+26.4 Default Exports
+26.5 Alias Imports
+26.6 Namespace Imports
+26.7 Dynamic import()
+26.8 Module Scope
+26.9 CommonJS
+
+require
+module.exports
+
+26.10 ES Modules vs CommonJS
+26.11 Tree Shaking
+26.12 Circular Dependencies
+
+27) Asynchronous JavaScript
+This is one of the most important areas.
+27.1 Synchronous vs Asynchronous
+27.2 Callback Functions
+27.3 Callback Hell
+27.4 Timers
+
+setTimeout
+setInterval
+clearTimeout
+clearInterval
+
+27.5 Promises
+
+pending
+fulfilled
+rejected
+
+27.6 Promise Methods
+
+.then()
+.catch()
+.finally()
+
+27.7 Promise Static Methods
+
+Promise.resolve()
+Promise.reject()
+Promise.all()
+Promise.allSettled()
+Promise.race()
+Promise.any()
+
+27.8 Async/Await
+
+syntactic sugar over promises
+
+27.9 Error Handling in Async Code
+27.10 Sequential vs Parallel Async
+27.11 Chaining Promises
+27.12 Promise Combinators
+27.13 Cancellation Patterns
+
+often via AbortController
+
+
+28) Event Loop, Tasks, and Scheduling
+This is a “must recall” concept.
+28.1 Call Stack
+28.2 Web APIs / Host APIs
+28.3 Callback Queue (Task Queue / Macrotask Queue)
+28.4 Microtask Queue
+
+Promise callbacks
+queueMicrotask
+
+28.5 Event Loop
+
+Moves tasks into call stack when stack is empty
+
+28.6 Macrotasks vs Microtasks
+
+Important for execution order questions
+
+
+29) Browser-Specific JavaScript Concepts
+29.1 DOM
+
+Document Object Model
+
+29.2 BOM
+
+Browser Object Model
+
+29.3 window
+29.4 document
+29.5 DOM Tree
+29.6 Selecting Elements
+
+getElementById
+querySelector
+querySelectorAll
+etc.
+
+29.7 Modifying DOM
+
+text/content
+attributes
+classes
+styles
+insert/remove elements
+
+29.8 DOM Traversal
+
+parent/child/sibling concepts
+
+29.9 Events
+
+click
+input
+submit
+keyboard
+mouse
+focus
+load
+scroll
+change
+
+29.10 Event Handling
+
+inline (avoid)
+property handlers
+addEventListener
+
+29.11 Event Object
+29.12 Event Bubbling
+29.13 Event Capturing
+29.14 Event Delegation
+29.15 preventDefault()
+29.16 stopPropagation()
+29.17 Forms
+29.18 Validation
+29.19 Browser Storage
+
+localStorage
+sessionStorage
+cookies
+IndexedDB
+
+29.20 Browser Navigation APIs
+
+history
+location
+
+29.21 Fetch API
+29.22 XMLHttpRequest (legacy but important historically)
+29.23 CORS
+29.24 WebSockets
+29.25 Geolocation
+29.26 Canvas API
+29.27 Web Workers
+29.28 Service Workers
+29.29 Notifications
+29.30 Clipboard API
+29.31 Intersection Observer
+29.32 Mutation Observer
+29.33 Resize Observer
+
+30) Node.js JavaScript Concepts
+Since JS is also backend/runtime-based:
+30.1 Node.js Runtime
+30.2 Global Objects in Node
+30.3 process
+30.4 Buffer
+30.5 File System (fs)
+30.6 Path (path)
+30.7 HTTP Module
+30.8 Streams
+30.9 Events / EventEmitter
+30.10 Timers in Node
+30.11 Modules in Node
+30.12 Package Management
+
+npm
+yarn
+pnpm
+
+30.13 package.json
+30.14 Environment Variables
+30.15 CommonJS vs ESM in Node
+30.16 REPL
+30.17 Child Processes
+30.18 Worker Threads
+
+31) Memory and Performance Concepts
+31.1 Stack vs Heap
+31.2 Primitive vs Reference Storage
+31.3 Garbage Collection
+31.4 Memory Leaks
+31.5 Closures causing retention
+31.6 Detached DOM nodes
+31.7 Performance Bottlenecks
+31.8 Lazy Loading
+31.9 Code Splitting
+31.10 Memoization
+31.11 Debounce/Throttle
+31.12 Reflow/Repaint (browser rendering)
+31.13 Big-O awareness in JS code
+
+32) Functional Programming Concepts in JavaScript
+32.1 First-Class Functions
+32.2 Higher-Order Functions
+32.3 Immutability
+32.4 Pure Functions
+32.5 Referential Transparency
+32.6 Composition
+32.7 Currying
+32.8 Partial Application
+32.9 map, filter, reduce
+32.10 Declarative vs Imperative coding
+
+33) Object-Oriented Programming in JavaScript
+33.1 Encapsulation
+33.2 Abstraction
+33.3 Inheritance
+33.4 Polymorphism
+33.5 Classes vs Prototypes
+33.6 Composition over Inheritance
+
+34) Common JavaScript Patterns
+34.1 Module Pattern
+34.2 Factory Function Pattern
+34.3 Constructor Pattern
+34.4 Singleton Pattern
+34.5 Observer Pattern
+34.6 Pub/Sub Pattern
+34.7 Revealing Module Pattern
+34.8 Adapter Pattern
+34.9 Strategy Pattern
+34.10 Dependency Injection concepts
+
+35) Advanced Language Internals
+35.1 Execution Context Creation Phase
+35.2 Execution Phase
+35.3 Hoisting Internals
+35.4 Lexical Environment Records
+35.5 Closures Internals
+35.6 Prototypal Lookup Mechanism
+35.7 Property Lookup
+35.8 Hidden Classes / JIT concepts (engine-level idea)
+35.9 Tail Calls (theoretical/spec discussion)
+35.10 Strict Mode Semantics
+
+36) Proxy and Reflect
+36.1 Proxy Basics
+
+wrap object behavior
+
+36.2 Traps
+
+get
+set
+has
+deleteProperty
+apply
+construct
+etc.
+
+36.3 Reflect API
+
+standard way to forward/internal object operations
+
+Use cases:
+
+validation
+logging
+reactivity systems
+meta-programming
+
+
+37) Iterables, Iterators, Generators
+37.1 Iterable Protocol
+37.2 Iterator Protocol
+37.3 Custom Iterables
+37.4 Generators
+37.5 yield
+37.6 Generator control (next, throw, return)
+37.7 Async Iteration
+37.8 for await...of
+
+38) Concurrency-Related Concepts
+38.1 Non-blocking IO
+38.2 Event-driven Programming
+38.3 Promise concurrency
+38.4 Worker Threads / Web Workers
+38.5 Shared memory concepts (advanced)
+38.6 Race conditions in async logic
+38.7 Queuing and scheduling
+
+39) Security Concepts in JavaScript
+Very important in frontend/backend.
+39.1 XSS
+
+Cross-Site Scripting
+
+39.2 CSRF
+
+Cross-Site Request Forgery
+
+39.3 CORS
+39.4 CSP
+
+Content Security Policy
+
+39.5 Avoiding eval
+39.6 Sanitization
+39.7 Safe DOM insertion
+39.8 Token handling basics
+39.9 LocalStorage security tradeoffs
+39.10 Prototype Pollution awareness
+
+40) JavaScript in the Browser Rendering Pipeline
+40.1 HTML Parsing
+40.2 DOM Construction
+40.3 CSSOM
+40.4 Render Tree
+40.5 Layout
+40.6 Paint
+40.7 Composite
+40.8 Script blocking behavior
+40.9 defer
+40.10 async
+
+41) Tooling Ecosystem Concepts
+These are not language syntax, but are essential in real JS work.
+41.1 npm
+41.2 package.json
+41.3 Semver
+
+semantic versioning
+
+41.4 Bundlers
+
+Webpack
+Vite
+Rollup
+Parcel
+
+41.5 Transpilers
+
+Babel
+
+41.6 Linters
+
+ESLint
+
+41.7 Formatters
+
+Prettier
+
+41.8 Test Runners
+
+Jest
+Vitest
+Mocha
+
+41.9 Build tools
+41.10 Polyfills
+41.11 Source Maps
+
+42) Testing Concepts in JavaScript
+42.1 Unit Testing
+42.2 Integration Testing
+42.3 End-to-End Testing
+42.4 Mocking
+42.5 Stubbing
+42.6 Spies
+42.7 Assertions
+42.8 Testing async code
+42.9 DOM testing concepts
+
+43) Common JS “Gotcha” Topics
+These are often interview/revision-heavy.
+43.1 this
+43.2 Hoisting
+43.3 Closure
+43.4 Event Loop
+43.5 var vs let vs const
+43.6 == vs ===
+43.7 null vs undefined
+43.8 Shallow copy vs deep copy
+43.9 Mutation vs immutability
+43.10 Array methods mutating or not
+43.11 Arrow function differences
+43.12 Prototypes
+43.13 Promise execution order
+43.14 Microtasks vs macrotasks
+43.15 NaN
+43.16 Floating-point precision
+43.17 Object reference equality
+43.18 Destructuring defaults
+43.19 Spread behavior
+43.20 for...in vs for...of
+
+44) Most Important Core Concepts to Master First
+If you want the highest-value recall order, prioritize these:
+
+Variables (var, let, const)
+Data types
+Type coercion
+Operators
+Conditionals and loops
+Arrays and objects
+Functions
+Scope
+Closures
+this
+Hoisting
+Prototypes
+Classes
+Destructuring / spread / rest
+Error handling
+Promises
+Async/await
+Event loop
+DOM and events
+Modules
+
+
+45) Best Revision Order (Recommended)
+Since you said you want to recall everything, revise in this order:
+Phase 1 — Fundamentals
+
+Syntax
+Variables
+Data types
+Operators
+Conditionals
+Loops
+
+Phase 2 — Core Structures
+
+Strings
+Arrays
+Objects
+Destructuring
+Spread/rest
+JSON
+
+Phase 3 — Functions
+
+Function types
+Scope
+Hoisting
+Closures
+this
+call/apply/bind
+
+Phase 4 — Deeper JS
+
+Prototype chain
+Constructor functions
+Classes
+Property descriptors
+Map, Set, Symbol
+
+Phase 5 — Async JS
+
+Call stack
+Event loop
+Callbacks
+Promises
+Async/await
+Fetch
+AbortController
+
+Phase 6 — Browser JS
+
+DOM
+Events
+Event delegation
+Forms
+Storage
+Network APIs
+
+Phase 7 — Advanced / Production
+
+Modules
+Error handling
+Memory/performance
+Security
+Tooling
+Testing
+
+
+46) One-Line Recall Definitions for the Most Important Concepts
+Here are quick memory lines:
+
+Scope → Where a variable is accessible
+Closure → A function remembering variables from outer scope
+Hoisting → Declarations are processed before execution
+this → Refers to the calling context of a function
+Prototype → Object inheritance mechanism in JS
+Promise → Object representing future async completion/failure
+Async/await → Cleaner syntax for working with promises
+Event loop → Mechanism that schedules async callbacks in JS
+Destructuring → Extracting values from arrays/objects
+Spread → Expanding iterable/object contents
+Rest → Collecting multiple values into one
+Module → File-level reusable code unit
+Pure function → Same input, same output, no side effects
+Mutability → Whether data can be changed
+Shallow copy → Top-level copy only, nested refs still shared
+
+
+47) Interview-Level “Must Explain” Topics
+If someone asks “Do you know JS?”, these are the concepts you should be able to explain clearly:
+
+Difference between var, let, and const
+Difference between == and ===
+What is closure?
+What is hoisting?
+What is scope chain?
+How does this work?
+What are prototypes?
+Difference between function declaration and arrow function
+What is event loop?
+Difference between microtask and macrotask
+How do promises work?
+Difference between synchronous and asynchronous code
+Difference between shallow copy and deep copy
+Difference between null and undefined
+Difference between for...in and for...of
+Difference between map, forEach, filter, reduce
+How modules work
+What is event delegation?
+What is debouncing/throttling?
+
+
+48) Quick Self-Review Checklist
+Use this as your recall checklist:
+Basics
+
+ Syntax
+ Variables
+ Scope
+ Hoisting
+ Data types
+ Type conversion
+ Operators
+ Conditionals
+ Loops
+
+Core Data Structures
+
+ Strings
+ Arrays
+ Objects
+ Maps/Sets
+ JSON
+
+Functions
+
+ Function declaration/expression
+ Arrow functions
+ Callbacks
+ Closures
+ this
+ call/apply/bind
+ Recursion
+ Higher-order functions
+
+OOP / Internal
+
+ Prototypes
+ Classes
+ Inheritance
+ Encapsulation
+ Property descriptors
+
+Async
+
+ Timers
+ Event loop
+ Promises
+ Async/await
+ Fetch
+ Error handling in async
+
+Browser
+
+ DOM
+ Events
+ Event delegation
+ Storage
+ Network requests
+
+Advanced
+
+ Modules
+ Generators
+ Iterables
+ Proxies
+ Performance
+ Security
+ Tooling
+ Testing
+
+
+49) If You Want to Recall JS Fast, Focus on These First
+Because of your React/web background, I’d strongly suggest you start with these first:
+
+Variables and scope
+Closures
+this
+Arrays and object methods
+Destructuring / spread / rest
+Promises and async/await
+Event loop
+DOM events and event delegation
+Modules
+Prototypes and classes
+
+These are the concepts that affect real React/frontend/backend work the most.
+
+50) Final Summary
+If I compress all JavaScript into major buckets, it becomes:
+
+Language Basics
+Types and Values
+Variables and Scope
+Functions and Closures
+Objects, Arrays, and Data Structures
+Prototypes and Classes
+Errors and Debugging
+Asynchronous JavaScript
+DOM and Browser APIs
+Modules and Tooling
+Performance, Security, and Patterns
+
+
+If you want, I can do the next best step for you:
+Option A
+I can turn this into a clean day-wise JS revision plan (7 days / 15 days / 30 days)
+Option B
+I can give you each concept with examples in the same top-to-bottom order
+Option C
+I can prepare a JavaScript full interview revision notes sheet for quick recall
+Option D
+I can make a checkbox-style master list you can track while revising
+If you want, I can next give you “JavaScript Concepts Explained One by One from Basics to Advanced” in a proper study format.
