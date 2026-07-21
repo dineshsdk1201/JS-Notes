@@ -1,3 +1,29 @@
+//Promise:
+
+//A Promise in JavaScript is an object that represents the future result of an asynchronous operation — it can be pending, fulfilled, or rejected.
+
+//It is mainly used for API calls, file/database operations, timers, and async workflows, so we can handle success using .then() and errors using .catch() instead of deeply nested callbacks.
+
+//Its limitations are: a Promise gives only one final result, it is not automatically cancellable, and too many .then() chains can still become hard to read — so we often use async/await, Promise.all(), and AbortController to manage these better.
+
+//Limitation 1: Promise gives only one final result
+//Limitation 2: Promise is not automatically cancellable
+//Limitation 3: Too many .then() chains can still become hard to read
+//Limitation 4: Error handling can be missed
+
+//Promise Constructor:
+
+const promise = new Promise((resolve, reject) => {
+  // async task
+
+  if (success) {
+    resolve(value);
+  } else {
+    reject(error);
+  }
+});
+
+///////////////////////
 
 const fakeDB = {
   users: [
@@ -71,4 +97,53 @@ loginUser("Dinesh")
   .then((d) => {
     console.log(d);
   })
-  .catch((e) => console.log(e));
+  .catch((e) => console.log(e)).finally((r)=>{console.log("Promise Completed")});
+
+
+
+//Promise.All  If one fails, treat the full operation as failed.
+const p1 = loginUser("Dinesh");
+const p2 = getUserProfile(1);
+const p3 = getOrders(1);
+const p4 = getorderDetails(101);
+
+Promise.all([p1, p2, p3, p4])
+  .then((results) => {
+    console.log(results);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+//Promise.allSettled Promise.allSettled() waits for all Promises to finish, whether they succeed or fail.
+
+Promise.allSettled([p1, p2, p3, p4])
+  .then((results) => {
+    console.log(results);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+//Promise.race() returns the result of the first Promise that settles, whether it succeeds or fails.
+
+Promise.race([p1, p2, p3, p4])
+  .then((results) => {
+    console.log(results);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+//Promise.any() returns the first successfully fulfilled Promise. If all Promises reject, then it rejects.
+
+
+Promise.any([p1, p2, p3, p4])
+  .then((results) => {
+    console.log(results);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+
