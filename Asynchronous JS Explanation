@@ -1,0 +1,26 @@
+Callback:
+
+A callback in JavaScript is a function passed as an argument to another function, so it can be executed later after some task is completed.
+
+It is used in event handling, array methods, timers, API calls, and asynchronous operations — for example, running code after a button click or after data is received.
+
+Its limitations are callback hell, messy error handling, and less readable code when many async tasks depend on each other; these are solved using Promises and async/await.
+
+
+Promise:
+
+A Promise in JavaScript is an object that represents the future result of an asynchronous operation — it can be pending, fulfilled, or rejected.
+
+It is mainly used for API calls, file/database operations, timers, and async workflows, so we can handle success using .then() and errors using .catch() instead of deeply nested callbacks.
+
+Its limitations are: a Promise gives only one final result, it is not automatically cancellable, and too many .then() chains can still become hard to read — so we often use async/await, Promise.all(), and AbortController to manage these better.
+
+
+
+Async/Await
+
+Async/Await is a modern JavaScript syntax used to write Promise-based asynchronous code in a cleaner, readable way, almost like normal synchronous code.
+
+It is mainly used for API calls, database/file operations, timers, and sequential async tasks, where await pauses execution until the Promise is resolved or rejected.
+
+Its limitations are: it works only with Promises, wrong usage can make tasks run one-by-one instead of parallel, and errors must be handled properly using try...catch; for parallel tasks, use Promise.all().
